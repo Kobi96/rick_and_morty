@@ -1,6 +1,21 @@
 .App {
   text-align: center;
-  background-image: url("/images/s_9DCA19C260A17186CB74D88060C4120D5C4E963F9CC68332AE102310C9807941_1547386667476_deepfield.webp");
+  background: url("/images/812062.png");
+  /* width: 100vw;
+  height: 100vh;
   background-size: cover;
-  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+  /* width: 100%;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, 304px);
+  justify-content: center; */
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-attachment: fixed;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
