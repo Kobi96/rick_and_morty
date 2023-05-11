@@ -1,0 +1,8 @@
+.cardsContainer {
+  /* background-color: rgb(242, 104, 104); */
+  width: 100%;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, 304px);
+  justify-content: center;
+}
