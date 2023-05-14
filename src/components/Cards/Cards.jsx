@@ -4,7 +4,7 @@ import style from "./Cards.module.css";
 export default function Cards(props) {
   const { characters } = props;
   return (
-    <div className={style.cardsContainer}>
+    <div className={style.cards}>
       {characters.map((char) => {
         return (
           <Card

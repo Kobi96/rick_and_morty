@@ -1,14 +1,5 @@
-/*  .cardsContainer {
-  width: 100%;
-
-  display: grid;
-
-  gap: 20px;
-  grid-template-columns: repeat(auto-fill, 304px);
-
-  justify-content: center; 
-   
+.cards {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-  */
