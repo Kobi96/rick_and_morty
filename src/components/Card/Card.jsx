@@ -4,21 +4,16 @@ export default function Card(props) {
   const { name, status, species, gender, origin, image, onClose } = props;
   return (
     <div className={style.card}>
-      <div>
-        {/* <button className={style.button} onClick={onClose}>
-          X
-        </button> */}
-        <div className={style.wrapperText}>
-          <h2 className={style.name}>{name}</h2>
-          <div className={style.details}>
-            <h3>{status}</h3>
-            <h3>{species}</h3>
-            <h3>{gender}</h3>
-            <h3>{origin}</h3>
-          </div>
-        </div>
+      <button onClick={onClose}>X</button>
+      <h1 className={style.name}>{name}</h1>
+      <div className={style.details}>
+        <h2>{species}</h2>
+        <h2>{gender}</h2>
+        <h2>{origin}</h2>
       </div>
+
       <img src={image} alt="" />
+      <h2 className={style.status}>{status}</h2>
     </div>
   );
 }
