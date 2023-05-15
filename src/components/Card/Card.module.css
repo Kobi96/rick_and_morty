@@ -9,11 +9,12 @@
 }
 
 .card {
-  justify-content: center;
-  margin: 2em;
-  padding-top: 1em;
-  width: 20rem;
   display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 250px;
   flex-direction: column;
   position: relative;
   border-radius: 0px 78px 77px 77px;
@@ -33,8 +34,6 @@
 
 .name {
   font-family: "rmFont";
-  font-size: 2em;
-  letter-spacing: 0.2em;
   display: flex;
   justify-content: center;
   color: #00eeff;
@@ -45,6 +44,7 @@
 
 .details {
   width: 100%;
+  padding-left: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -53,11 +53,12 @@
   color: #ffffff;
 }
 h2 {
-  font-size: 14px;
+  font-size: 12px;
 }
 img {
-  width: 15em;
+  width: 10em;
   padding: 0;
+  margin-top: 20px;
 
   clip-path: polygon(
     50% 0%,
@@ -74,15 +75,15 @@ img {
 }
 
 .status {
-  font-family: "stampFont";
-  color: red;
   font-size: 42px;
   letter-spacing: 4px;
+  font-family: "stampFont";
+  color: red;
   display: flex;
   justify-content: center;
 }
 
-button {
+.cardButton {
   font-family: monospace;
   background-color: rgba(42, 21, 77, 0.638);
   color: #3b82f6;

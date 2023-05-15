@@ -4,7 +4,9 @@ export default function Card(props) {
   const { name, status, species, gender, origin, image, onClose } = props;
   return (
     <div className={style.card}>
-      <button onClick={onClose}>X</button>
+      <button className={style.cardButton} onClick={onClose}>
+        X
+      </button>
       <h1 className={style.name}>{name}</h1>
       <div className={style.details}>
         <h2>{species}</h2>
