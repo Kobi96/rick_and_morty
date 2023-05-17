@@ -1,10 +1,15 @@
 import style from "./Card.module.css";
 
 export default function Card(props) {
-  const { name, status, species, gender, origin, image, onClose } = props;
+  const { id, name, status, species, gender, origin, image, onClose } = props;
   return (
     <div className={style.card}>
-      <button className={style.cardButton} onClick={onClose}>
+      <button
+        className={style.cardButton}
+        onClick={() => {
+          onClose(id);
+        }}
+      >
         X
       </button>
       <h1 className={style.name}>{name}</h1>
