@@ -2,22 +2,19 @@ const validator = (data) => {
   let errors = {};
 
   if (!data.email) {
-    errors.e2 = "Ingresa un email.";
+    errors.email = "Ingresa un email.";
+  } else if (!data.email.includes("@")) {
+    errors.email = "Ingresa un email válido.";
+  } else if (data.email.length > 35) {
+    errors.email = "Menos de 35 caracteres";
   }
 
-  if (!data.email.includes("@")) {
-    errors.e1 = "Ingresa un email válido.";
-  }
-
-  if (data.email.length > 35) {
-    errors.e3 = "Menos de 35 caracteres";
-  }
   if (!/.*\d+.*/.test(data.password)) {
-    errors.p1 = "Al menos un número";
+    errors.password = "La contraseña debe contener al menos un número.";
+  } else if (data.password.length < 6 || data.password.length > 10) {
+    errors.password = "La contraseña debe tener entre 6 y 10 caracteres.";
   }
-  if (data.password.length < 6 || data.password.length > 10) {
-    errors.p2 = "Longitud incorrecta";
-  }
+
   return errors;
 };
 

@@ -15,7 +15,7 @@ function App() {
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
   const EMAIL = "tobiasolveira@outlook.com";
-  const PASSWORD = "Ogeidojr96!";
+  const PASSWORD = "ogeidojr96";
 
   function login(userData) {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
@@ -46,7 +46,7 @@ function App() {
 
   useEffect(() => {
     !access && navigate("/");
-  }, [access]);
+  }, [access, navigate]);
 
   return (
     <div className="App">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Form.module.css";
+import style from "./Form.module.css";
 import validator from "./validation";
 
 function Form(props) {
@@ -11,17 +11,21 @@ function Form(props) {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    setErrors(validator({ ...userData, [e.target.name]: e.target.value }));
     setUserData({ ...userData, [e.target.name]: e.target.value });
+    setErrors({});
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(userData);
+    const validationErrors = validator(userData);
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length === 0) {
+      login(userData);
+    }
   };
 
   return (
-    <div>
+    <div className={style.form}>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email</label>
@@ -31,13 +35,7 @@ function Form(props) {
             name="email"
             onChange={handleChange}
           />
-          {errors.e1 ? (
-            <p>{errors.e1}</p>
-          ) : errors.e2 ? (
-            <p>{errors.e2}</p>
-          ) : (
-            <p>{errors.e3}</p>
-          )}
+          {errors.email && <p>{errors.email}</p>}
         </div>
         <label>Password</label>
         <input
@@ -46,6 +44,7 @@ function Form(props) {
           name="password"
           onChange={handleChange}
         />
+        {errors.password && <p>{errors.password}</p>}
         <div></div>
         <button type="submit">Submit</button>
       </form>
