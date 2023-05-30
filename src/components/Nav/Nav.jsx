@@ -15,6 +15,9 @@ const Nav = (props) => {
       <Link to={ROUTES.HOME}>
         <button>Home</button>
       </Link>
+      <Link to={ROUTES.FAVORITES}>
+        <button>Favorites</button>
+      </Link>
     </div>
   );
 };

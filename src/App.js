@@ -8,6 +8,7 @@ import { ROUTES } from "./helpers/RoutesPath";
 import Detail from "./components/Detail.jsx/Detail";
 import About from "./views/About";
 import Form from "./components/Form/Form";
+import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const { pathname } = useLocation();
@@ -59,6 +60,7 @@ function App() {
         />
         <Route path={ROUTES.ABOUT} element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path={ROUTES.FAVORITES} element={<Favorites />} />
       </Routes>
     </div>
   );
