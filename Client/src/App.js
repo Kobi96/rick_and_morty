@@ -2,7 +2,6 @@ import "./App.css";
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "./helpers/RoutesPath";
 import Detail from "./components/Detail.jsx/Detail";
@@ -26,15 +25,16 @@ function App() {
   }
 
   const onSearch = (id) => {
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
-      ({ data }) => {
+    const URL_BASE = "http://localhost:3001/rickandmorty/";
+    fetch(`${URL_BASE}character/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
         if (data.name) {
           setCharacters((oldChars) => [...oldChars, data]);
         } else {
           window.alert("¡No hay personajes con este ID!");
         }
-      }
-    );
+      });
   };
 
   const onClose = (id) => {
