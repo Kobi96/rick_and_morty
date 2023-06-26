@@ -8,20 +8,22 @@ import Detail from "./components/Detail.jsx/Detail";
 import About from "./views/About";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
+import axios from "axios";
 
 function App() {
   const { pathname } = useLocation();
   const [characters, setCharacters] = useState([]);
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
-  const EMAIL = "tobiasolveira@outlook.com";
-  const PASSWORD = "ogeidojr96";
 
   function login(userData) {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
-      navigate(ROUTES.HOME);
-    }
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+    });
   }
 
   const onSearch = (id) => {
