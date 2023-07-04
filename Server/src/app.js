@@ -1,11 +1,19 @@
 const express = require("express");
-const app = express();
+const server = express();
 const morgan = require("morgan");
-const cors = require("cors");
 const router = require("./routes");
-app.use(morgan("dev"));
-app.use(cors());
-app.use(express.json());
-app.use("/rickandmorty", router);
+server.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
+});
+server.use(morgan("dev"));
+server.use(express.json());
+server.use("/rickandmorty", router);
 
-module.exports = app;
+module.exports = server;
