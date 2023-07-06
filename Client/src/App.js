@@ -31,23 +31,20 @@ function App() {
   }
 
   async function onSearch(id) {
-    try {
-      const URL_BASE = "http://localhost:3001/rickandmorty/";
-
-      const response = await fetch(`${URL_BASE}character/${id}`);
-
-      const data = response.data;
-
-      if (data.name) {
+    // eslint-disable-next-line eqeqeq
+    if (characters.find((char) => char.id == id)) {
+      return alert(`Ya se agrego el personaje con este ID: ${id}`);
+    } else {
+      try {
+        const { data } = await axios.get(
+          `http://localhost:3001/rickandmorty/character/${id}`
+        );
         setCharacters((oldChars) => [...oldChars, data]);
-      } else {
-        window.alert("¡No hay personajes con este ID!");
+      } catch (error) {
+        alert(error.message);
       }
-    } catch (error) {
-      console.log(error);
     }
   }
-
   const onClose = (id) => {
     setCharacters(
       characters.filter((char) => {
