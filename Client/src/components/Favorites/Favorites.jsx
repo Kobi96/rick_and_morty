@@ -17,6 +17,7 @@ const Favorites = (props) => {
 
   const handleFilter = (e) => {
     dispatch(filterCards(e.target.value));
+    setAux(!aux);
   };
 
   return (
@@ -34,6 +35,7 @@ const Favorites = (props) => {
         </select>
       </div>
       {myFavorites.map((char) => {
+        console.log(char);
         return (
           <Card
             key={char.id}

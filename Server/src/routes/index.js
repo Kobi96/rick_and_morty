@@ -5,9 +5,9 @@ const login = require("../controllers/login");
 
 const router = Router();
 
-router.get("/character/:id", getCharacterById);
-router.get("/login", login);
-router.post("/fav", postFav);
-router.delete("/fav/:id", deleteFav);
+router.get("/character/:id", (req, res) => getCharacterById(req, res));
+router.get("/login", (req, res) => login(req, res));
+router.post("/fav", (req, res) => postFav(req, res));
+router.delete("/fav/:id", (req, res) => deleteFav(req, res));
 
 module.exports = router;
