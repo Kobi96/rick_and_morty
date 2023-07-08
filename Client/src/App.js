@@ -1,20 +1,22 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
 import Cards from "./components/Cards/Cards.jsx";
-import Nav from "./components/Nav/Nav";
-import { useState, useEffect } from "react";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { ROUTES } from "./helpers/RoutesPath";
 import Detail from "./components/Detail.jsx/Detail";
-import About from "./views/About";
-import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
-import axios from "axios";
+import Form from "./components/Form/Form";
+import Nav from "./components/Nav/Nav";
+import { ROUTES } from "./helpers/RoutesPath";
+import About from "./views/About";
 
 function App() {
   const { pathname } = useLocation();
   const [characters, setCharacters] = useState([]);
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
+  const dispatch = useDispatch();
 
   async function login(userData) {
     try {
