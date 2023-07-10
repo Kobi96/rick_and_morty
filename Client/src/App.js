@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
 import Cards from "./components/Cards/Cards.jsx";
@@ -16,7 +15,6 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
-  const dispatch = useDispatch();
 
   async function login(userData) {
     try {
