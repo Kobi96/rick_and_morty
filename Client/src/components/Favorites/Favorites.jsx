@@ -22,7 +22,7 @@ const Favorites = (props) => {
 
   return (
     <div>
-      <div>
+      <div className={styles.dropdown}>
         <select onChange={handleOrder}>
           <option value="A">Ascendente</option>
           <option value="D">Descendente</option>
@@ -34,21 +34,23 @@ const Favorites = (props) => {
           <option value="unknown">unknown</option>
         </select>
       </div>
-      {myFavorites.map((char) => {
-        console.log(char);
-        return (
-          <Card
-            key={char.id}
-            id={char.id}
-            name={char.name}
-            status={char.status}
-            species={char.species}
-            gender={char.gender}
-            origin={char.origin}
-            image={char.image}
-          />
-        );
-      })}
+      <div className={styles.favorites}>
+        {myFavorites.map((char) => {
+          console.log(char);
+          return (
+            <Card
+              key={char.id}
+              id={char.id}
+              name={char.name}
+              status={char.status}
+              species={char.species}
+              gender={char.gender}
+              origin={char.origin}
+              image={char.image}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

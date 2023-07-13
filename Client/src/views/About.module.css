@@ -1,0 +1,54 @@
+@font-face {
+  font-family: "rmFont";
+  src: url("/font/get_schwifty.ttf");
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 1000px;
+  height: 500px;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+
+  border: 0px solid #000000;
+  background-color: rgba(44, 23, 77, 0.638);
+  transition: 1s ease-in-out;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: #e8e8e8;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content .heading {
+  font-weight: 700;
+  font-size: 70px;
+  margin: 0 auto;
+  font-family: "rmFont";
+
+  display: flex;
+  justify-content: center;
+  color: #00eeff;
+  text-shadow: -2px 1px 4px rgba(49, 255, 0, 0.6);
+  z-index: 50;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+}
+
+.content .para {
+  line-height: 1.5;
+  width: 600px;
+  height: 200px;
+}
+
+.selfPicture {
+  width: 30%;
+  height: 80%;
+}

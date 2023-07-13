@@ -42,18 +42,24 @@ function Card(props) {
 
   return (
     <div className={style.card}>
-      {isFav ? (
-        <button onClick={handleFavourite}>❤️</button>
-      ) : (
-        <button onClick={handleFavourite}>🤍</button>
-      )}
-      {pathname !== "/favorites/" ? (
-        <button className={style.cardButton} onClick={() => onClose(id)}>
-          X
-        </button>
-      ) : (
-        <button className={style.cruz}>X</button>
-      )}
+      <div className={style.buttonOrder}>
+        {pathname !== "/favorites/" ? (
+          <button className={style.cardButton} onClick={() => onClose(id)}>
+            X
+          </button>
+        ) : (
+          <button className={style.cruz}>X</button>
+        )}
+        {isFav ? (
+          <button className={style.favButton} onClick={handleFavourite}>
+            ❤️
+          </button>
+        ) : (
+          <button className={style.favButton} onClick={handleFavourite}>
+            🤍
+          </button>
+        )}
+      </div>
       <Link to={`/detail/${id}`}>
         <h1 className={style.name}>{name}</h1>
       </Link>
@@ -63,7 +69,7 @@ function Card(props) {
         <h2>{origin}</h2>
       </div>
 
-      <img src={image} alt="" />
+      <img className={style.charPicture} src={image} alt="" />
       <h2 className={style.status}>{status}</h2>
     </div>
   );

@@ -16,19 +16,22 @@ function App() {
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
 
-  async function login(userData) {
+  const login = async (userData) => {
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
     try {
-      const { email, password } = userData;
-      const URL = "http://localhost:3001/rickandmorty/login/";
-      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-        const { access } = data;
-        setAccess(data);
-        access && navigate("/home");
-      });
-    } catch (error) {
-      console.log(error);
+      const { data } = await axios(
+        `${URL}?email=${email}&password=${password}`
+      );
+      const { access } = data;
+      setAccess(data);
+      access
+        ? navigate("/home")
+        : window.alert(`Usuario ${email.split("@")[0]} no figura en la base`);
+    } catch {
+      window.alert(`Usuario ${email.split("@")[0]} no figura en la base`);
     }
-  }
+  };
 
   async function onSearch(id) {
     // eslint-disable-next-line eqeqeq

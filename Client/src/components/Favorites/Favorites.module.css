@@ -1,0 +1,50 @@
+.favorites {
+  display: flex;
+
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  max-width: 300px;
+  min-width: 100px;
+  margin: 0 auto;
+  border: 1px solid #3c1c78;
+  background-color: #16013e;
+  z-index: 10;
+}
+
+select {
+  border: none;
+  outline: none;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+  padding: 12px 55px 15px 15px;
+  font-size: 14px;
+  color: #714bb9;
+}
+
+select:after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  line-height: 38px;
+  content: "\2228";
+  text-align: center;
+  color: #714bb9;
+  font-size: 24px;
+  border-left: 1px solid #3c1c78;
+  z-index: -1;
+}

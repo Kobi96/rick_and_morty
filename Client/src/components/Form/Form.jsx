@@ -25,7 +25,42 @@ function Form(props) {
   };
 
   return (
-    <div className={style.form}>
+    <div className={style.form_container}>
+      <form className={style.form} onSubmit={handleSubmit}>
+        <div className={style.form_group}>
+          <label className={style.label} for="email">
+            Email
+          </label>
+          <input
+            className={style.input}
+            type="text"
+            value={userData.email}
+            name="email"
+            onChange={handleChange}
+          />
+        </div>
+        {errors.email && <p className={style.errors}>{errors.email}</p>}
+        <div className={style.form_group}>
+          <label for="password" className={style.label}>
+            Password
+          </label>
+          <input
+            className={style.input}
+            type="password"
+            value={userData.password}
+            name="password"
+            onChange={handleChange}
+          />
+        </div>
+        {errors.password && <p className={style.errors}>{errors.password}</p>}
+        <button className={style.form_submit_btn} type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+}
+/*  <div className={style.form}>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email</label>
@@ -48,8 +83,6 @@ function Form(props) {
         <div></div>
         <button type="submit">Submit</button>
       </form>
-    </div>
-  );
-}
+    </div> */
 
 export default Form;

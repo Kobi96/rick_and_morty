@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "rmFont";
+  src: url("/font/get_schwifty.ttf");
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 900px;
+  height: 500px;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+
+  border: 0px solid #000000;
+  background-color: rgba(44, 23, 77, 0.638);
+  transition: 1s ease-in-out;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  color: #e8e8e8;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.detailName {
+  font-weight: 500;
+  font-size: 70px;
+  margin: 0 auto;
+  padding: 0;
+  font-family: "rmFont";
+
+  display: flex;
+  justify-content: center;
+  color: #00eeff;
+  text-shadow: -2px 1px 4px rgba(49, 255, 0, 0.6);
+  z-index: 50;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+}
+
+img {
+  width: 30%;
+  height: 80%;
+
+  padding: 0;
+  margin-top: 40px;
+
+  clip-path: polygon(
+    50% 0%,
+    90% 20%,
+    100% 60%,
+    75% 100%,
+    25% 100%,
+    0% 60%,
+    10% 20%
+  );
+}
+
+.info {
+  font-size: 30px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
