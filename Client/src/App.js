@@ -14,27 +14,30 @@ function App() {
   const { pathname } = useLocation();
   const [characters, setCharacters] = useState([]);
   const navigate = useNavigate();
-  const [access, setAccess] = useState(false);
 
-  const login = async (userData) => {
-    const { email, password } = userData;
-    const URL = "http://localhost:3001/rickandmorty/login/";
-    try {
-      const { data } = await axios(
-        `${URL}?email=${email}&password=${password}`
-      );
-      const { access } = data;
-      setAccess(data);
-      access
-        ? navigate("/home")
-        : window.alert(`Usuario ${email.split("@")[0]} no figura en la base`);
-    } catch {
-      window.alert(`Usuario ${email.split("@")[0]} no figura en la base`);
-    }
+  const login = () => {
+    navigate("/home");
   };
 
   async function onSearch(id) {
     // eslint-disable-next-line eqeqeq
+    if (characters.find((char) => char.id == id)) {
+      return alert(`Ya se agrego el personaje con este ID: ${id}`);
+    } else {
+      try {
+        const { data } = await axios.get(
+          `http://localhost:3001/rickandmorty/character/${id}`
+        );
+        setCharacters((oldChars) => [...oldChars, data]);
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+  }
+  async function randomCharacters() {
+    const numeroDecimal = Math.random();
+    const id = Math.floor(numeroDecimal * 826) + 1;
+
     if (characters.find((char) => char.id == id)) {
       return alert(`Ya se agrego el personaje con este ID: ${id}`);
     } else {
@@ -56,13 +59,11 @@ function App() {
     );
   };
 
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access, navigate]);
-
   return (
     <div className="App">
-      {pathname !== "/" && <Nav onSearch={onSearch} />}
+      {pathname !== "/" && (
+        <Nav onSearch={onSearch} randomCharacter={randomCharacters} />
+      )}
       <Routes>
         <Route path={"/"} element={<Form login={login} />} />
         <Route

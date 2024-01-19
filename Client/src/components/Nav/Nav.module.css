@@ -2,13 +2,13 @@
   height: 80px;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: flex-start;
+  justify-content: space-between;
   background: rgba(48, 248, 65, 0.45);
   background: -moz-linear-gradient(
     top,
     rgba(48, 248, 65, 0.45) 0%,
     rgba(91, 241, 101, 0.45) 0%,
-    rgba(14, 246, 25, 0.45) 0%,
+    rgba(86, 95, 86, 0.45) 0%,
     rgba(25, 240, 36, 0.01) 100%
   );
   background: -webkit-gradient(
@@ -67,4 +67,9 @@ button {
 
 button:hover {
   background-color: #5e5dcd;
+}
+
+.linkButtons {
+  display: flex;
+  flex-direction: row-reverse;
 }

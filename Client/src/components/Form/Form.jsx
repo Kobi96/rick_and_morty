@@ -16,12 +16,7 @@ function Form(props) {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validator(userData);
-    setErrors(validationErrors);
-    if (Object.keys(validationErrors).length === 0) {
-      login(userData);
-    }
+    login();
   };
 
   return (

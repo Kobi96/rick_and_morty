@@ -5,19 +5,26 @@ import { Link } from "react-router-dom";
 import { ROUTES } from "../../helpers/RoutesPath";
 
 const Nav = (props) => {
-  const { onSearch } = props;
+  const { onSearch, randomCharacter } = props;
   return (
     <div className={style.nav}>
-      <SearchBar onSearch={onSearch} />
-      <Link to={ROUTES.ABOUT}>
-        <button>About</button>
-      </Link>
-      <Link to={ROUTES.HOME}>
-        <button>Home</button>
-      </Link>
-      <Link to={ROUTES.FAVORITES}>
-        <button>Favorites</button>
-      </Link>
+      <div className={style.linkButtons}>
+        <SearchBar onSearch={onSearch} />
+        <div>
+          <Link to={ROUTES.ABOUT}>
+            <button className={style.button}>About</button>
+          </Link>
+          <Link to={ROUTES.HOME}>
+            <button className={style.button}>Home</button>
+          </Link>
+          <Link to={ROUTES.FAVORITES}>
+            <button className={style.button}>Favorites</button>
+          </Link>
+        </div>
+      </div>
+      <button className={style.button} onClick={randomCharacter}>
+        Random
+      </button>
     </div>
   );
 };
