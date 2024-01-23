@@ -61,19 +61,31 @@ function App() {
 
   return (
     <div className="App">
-      {pathname !== "/" && (
-        <Nav onSearch={onSearch} randomCharacter={randomCharacters} />
+      {pathname === "/" ||
+      pathname === ROUTES.HOME ||
+      pathname === ROUTES.ABOUT ||
+      pathname === ROUTES.FAVORITES ? (
+        /* Your conditional rendering logic goes here */
+        <>
+          {pathname !== "/" && (
+            <Nav onSearch={onSearch} randomCharacter={randomCharacters} />
+          )}
+          <Routes>
+            <Route path={"/"} element={<Form login={login} />} />
+            <Route
+              path={ROUTES.HOME}
+              element={<Cards characters={characters} onClose={onClose} />}
+            />
+            <Route path={ROUTES.ABOUT} element={<About />} />
+            <Route path="/detail/:id" element={<Detail />} />
+            <Route path={ROUTES.FAVORITES} element={<Favorites />} />
+          </Routes>
+        </>
+      ) : (
+        <div>
+          <h1>No existe la ruta</h1>
+        </div>
       )}
-      <Routes>
-        <Route path={"/"} element={<Form login={login} />} />
-        <Route
-          path={ROUTES.HOME}
-          element={<Cards characters={characters} onClose={onClose} />}
-        />
-        <Route path={ROUTES.ABOUT} element={<About />} />
-        <Route path="/detail/:id" element={<Detail />} />
-        <Route path={ROUTES.FAVORITES} element={<Favorites />} />
-      </Routes>
     </div>
   );
 }
